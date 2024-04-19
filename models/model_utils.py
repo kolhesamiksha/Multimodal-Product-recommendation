@@ -3,6 +3,9 @@ from typing import List, Union, Optional, Dict
 import torch
 import numpy as np
 from PIL import Image
+from pinecone import Pinecone, ServerlessSpec
+import pickle
+import os
 from .data import load_and_transform_text, load_and_transform_vision_data, load_and_transform_audio_data
 from .imagebind_model import ModalityType, imagebind_huge
 
@@ -51,3 +54,15 @@ def get_embeddings(
         inputs[ModalityType.AUDIO] = load_and_transform_audio_data(audio, device, dtype)
     embeddings = model(inputs)
     return embeddings
+
+def pinecone_retriever(query_embedding, pinecone_index_name, topk):
+
+    pinecone = Pinecone(
+        api_key = os.environ['PINECONE_API_KEY']
+    )
+
+    my_index_name = pinecone_index_name
+    my_index = pinecone.Index(name = my_index_name)
+
+    result = my_index.query(vector=query_embedding.tolist()[0], top_k=topk, include_metadata=True)
+    return result
