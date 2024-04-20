@@ -14,7 +14,7 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 ImageLike = Union["str", np.ndarray, Image.Image]
 
 
-def get_model(dtype: torch.dtype = torch.float16) -> torch.nn.Module:
+def get_model(dtype: torch.dtype = torch.float32) -> torch.nn.Module:
     model = imagebind_huge(pretrained=True)
     model = model.eval().to(device, dtype=dtype)
     return model
@@ -29,7 +29,7 @@ def get_texts_embeddings(model: torch.nn.Module, texts: List[str]) -> torch.Tens
 
 @torch.no_grad()
 def get_images_embeddings(
-    model: torch.nn.Module, images: List[ImageLike],dtype: torch.dtype = torch.float16
+    model: torch.nn.Module, images: List[ImageLike],dtype: torch.dtype = torch.float32
 ) -> torch.Tensor:
     inputs = {ModalityType.VISION: load_and_transform_vision_data(images, device).to(dtype)}
     images_embeddings = model(inputs)[ModalityType.VISION]
@@ -42,16 +42,16 @@ def get_embeddings(
     texts: Optional[List[str]],
     images: Optional[List[ImageLike]],
     audio: Optional[List[str]],
-    dtype: torch.dtype = torch.float16
+    dtype: torch.dtype = torch.float32
 ) -> Dict[str, torch.Tensor]:  
     inputs = {}
     if texts is not None:
         # they need to be ints
         inputs[ModalityType.TEXT] = load_and_transform_text(texts, device)
     if images is not None:
-        inputs[ModalityType.VISION] = load_and_transform_vision_data(images, device, dtype)
+        inputs[ModalityType.VISION] = load_and_transform_vision_data(images, device)
     if audio is not None:
-        inputs[ModalityType.AUDIO] = load_and_transform_audio_data(audio, device, dtype)
+        inputs[ModalityType.AUDIO] = load_and_transform_audio_data(audio, device)
     embeddings = model(inputs)
     return embeddings
 
