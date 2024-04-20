@@ -5,6 +5,8 @@ You can search a collection of images using `text`, `audio` or `images`.
 
 ## About
 
+![ImageBind-Architecture](images/image_bing_architecture.png)
+
 ## TechStack
 
 ## Data
