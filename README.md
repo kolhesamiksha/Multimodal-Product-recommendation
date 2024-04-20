@@ -14,6 +14,6 @@ For **Image and Text Embeddding data created using ImageBind model** Visit this 
 2. Image to Image: White Shirt
 ![Image-to-Image](images/image.png)
 
-3. Shoes in winters
+3. Audio to Image: Shoes in winters
 ![Audio-to-Image](images/audio.png)
 
