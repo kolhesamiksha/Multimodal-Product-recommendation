@@ -17,7 +17,17 @@ For **Image Descriptions data** Visit here https://www.kaggle.com/datasets/samik
 
 For **Image and Text Embeddding data created using ImageBind model** Visit this website to download the embeddings pickle file https://www.kaggle.com/datasets/samikshakolhe/pinterest-fashion-imagebind-multimodal-embed-data
 
-## How to Use
+## Retrieval with Imagebind and Pinecone from scratch
+
+Note: This code is builted and tested on python==v3.8.19.
+create a virtual env 
+ 1. conda create --name multimodal python=3.8.19
+ 2. conda activate multimodal
+
+Install the necessary dependencies
+ pip install -r requirements.txt
+
+## How to Run the App
 
 
 ## Sample Outputs with 3 modalities
