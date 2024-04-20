@@ -8,9 +8,12 @@ For **Image and Text Embeddding data created using ImageBind model** Visit this 
 
 #### Sample Examples
 
+1. Text to Image : Office coats and jackets
 ![Text-to-Image](images/text.png)
 
+2. Image to Image: White Shirt
 ![Image-to-Image](images/image.png)
 
+3. Shoes in winters
 ![Audio-to-Image](images/audio.png)
 
