@@ -47,11 +47,14 @@ def search_button_handler(
     embeddings = get_embeddings(model, text_query, image_query, audio_query).values()
     # if multiple inputs, we sum them
     embedding = torch.vstack(list(embeddings)).sum(0)
-    logger.info(
-        f"Model took {(perf_counter() - start) * 1000:.2f} for embedding = {embedding.shape}"
-    )
-    images_paths, query_res = pinecone_retriever(embedding.cpu().float(), pinecone_index_name, topk)
-    return [f"{image_path}" for image_path in images_paths]
+    print("--"*10)
+    print("Embeddings", embedding.numpy().tolist())
+    # logger.info(
+    #     f"Model took {(perf_counter() - start) * 1000:.2f} for embedding = {embeddings[0].shape}"
+    # )
+    query_res = pinecone_retriever(embedding.numpy(), pinecone_index_name, topk)
+    image_urls = [match['metadata']['image_url'] for match in query_res['matches']]
+    return image_urls
 
 
 def clear_button_handler():
@@ -59,7 +62,17 @@ def clear_button_handler():
 
 
 css = """
-#image_query { height: auto !important; }
+#image_query .output-image, .input-image, .image-preview { height: 100px !important; }
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(300px, 1fr)); /* Display four columns */
+    grid-gap: 20px; /* Adjust the gap between grid items */
+}
+
+#gallery img {
+    max-width: 100%;
+    height: auto; /* Let the height adjust automatically to maintain aspect ratio */
+}
 #audio_file_query { height: 100px; }
 """
 with gr.Blocks(css=css) as demo:
