@@ -9,41 +9,42 @@ You can search a collection of images using `text`, `audio` or `images`.
 
 ## Code Structure
 
-    ```
-        ├── audio/
-        │   ├── (audio files)
-        │
-        ├── docs/
-        │   └── app_info.md
-        │
-        ├── images/
-        │   ├── (sample images)
-        │
-        ├── models/
-        │   ├── __init__.py
-        │   ├── data.py
-        │   ├── helper.py
-        │   ├── imagebind_model.py
-        │   ├── model_utils.py
-        │   ├── multimodal_preprocessors.py
-        │   └── transformer.py
-        │
-        ├── Notebooks/
-        │   ├── gemini-description-dataset.ipynb
-        │   ├── imagebind-model-download.ipynb
-        │   ├── model-inference.ipynb
-        │   ├── pinecone-upsert-embeddings.ipynb
-        |   └── synthetic-fashion-dataset-creation.ipynb
-        |
-        ├──sample-workflow
-        |   └──docker-image-build.yml
-        ├── .env
-        ├── .gitignore
-        ├── Dockerfile 
-        ├── gradio_app.py
-        ├── README.md
-        └── requirements.txt
 ```
+    ├── audio/
+    │   ├── (audio files)
+    │
+    ├── docs/
+    │   └── app_info.md
+    │
+    ├── images/
+    │   ├── (sample images)
+    │
+    ├── models/
+    │   ├── __init__.py
+    │   ├── data.py
+    │   ├── helper.py
+    │   ├── imagebind_model.py
+    │   ├── model_utils.py
+    │   ├── multimodal_preprocessors.py
+    │   └── transformer.py
+    │
+    ├── Notebooks/
+    │   ├── gemini-description-dataset.ipynb
+    │   ├── imagebind-model-download.ipynb
+    │   ├── model-inference.ipynb
+    │   ├── pinecone-upsert-embeddings.ipynb
+    |   └── synthetic-fashion-dataset-creation.ipynb
+    |
+    ├──sample-workflow
+    |   └──docker-image-build.yml
+    ├── .env
+    ├── .gitignore
+    ├── Dockerfile 
+    ├── gradio_app.py
+    ├── README.md
+    └── requirements.txt
+```
+
 
 ## TechStack
 
