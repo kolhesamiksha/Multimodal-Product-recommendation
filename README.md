@@ -1,4 +1,4 @@
-# Multimodal-Product-recommendation Cross Retrieval with Pinecone
+# Multimodal-Product-Recommendation Cross Retrieval with Pinecone
 
 **Pinterest: Any-to-Image Product Recommendations Cross Modal Retrieval**
 You can search a collection of images using `text`, `audio` or `images`.
@@ -6,6 +6,38 @@ You can search a collection of images using `text`, `audio` or `images`.
 ## About
 
 ![ImageBind-Architecture](images/image_bing_architecture.png)
+
+## Code Structure
+
+    ```
+        ├── audio/
+        │   ├── (audio files)
+        │
+        ├── docs/
+        │   └── app_info.md
+        │
+        ├── images/
+        │   ├── (sample images)
+        │
+        ├── models/
+        │   ├── __init__.py
+        │   ├── data.py
+        │   ├── helper.py
+        │   ├── imagebind_model.py
+        │   ├── model_utils.py
+        │   ├── multimodal_preprocessors.py
+        │   └── transformer.py
+        │
+        ├── Notebooks/
+        │   ├── gemini-description-dataset.ipynb
+        │   ├── imagebind-model-download.ipynb
+        │   ├── model-inference.ipynb
+        │   └── pinecone-upsert-embeddings.ipynb
+        │
+        ├── gradio_app.py
+        │
+        └── requirements.txt
+```
 
 ## TechStack
 
@@ -41,3 +73,5 @@ Install the necessary dependencies
 3. Audio to Image: Shoes in winters
 ![Audio-to-Image](images/audio.png)
 
+## For more info
+Thank you for visiting the application
