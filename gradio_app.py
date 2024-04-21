@@ -8,11 +8,18 @@ from PIL import Image
 from logger import logger
 from models.model_utils import ModalityType, get_embeddings, get_model, pinecone_retriever
 
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-i', '--index', help="Specify your pinecone index name")
+parser.add_argument('-k', '--topk', help="no of images to recommend or retrieve")
+
+arguments = parser.parse_args()
 model = get_model()
 logger.info("Model Loaded!")
 
-pinecone_index_name = "pinterest-multimodal-search"
-topk=5
+pinecone_index_name = arguments.index
+topk = int(arguments.topk)
 
 def search_button_handler(
     text_query: Optional[str],
@@ -47,11 +54,9 @@ def search_button_handler(
     embeddings = get_embeddings(model, text_query, image_query, audio_query).values()
     # if multiple inputs, we sum them
     embedding = torch.vstack(list(embeddings)).sum(0)
-    print("--"*10)
-    print("Embeddings", embedding.numpy().tolist())
-    # logger.info(
-    #     f"Model took {(perf_counter() - start) * 1000:.2f} for embedding = {embeddings[0].shape}"
-    # )
+    logger.info(
+        f"Model took {(perf_counter() - start) * 1000:.2f}"
+    )
     query_res = pinecone_retriever(embedding.numpy(), pinecone_index_name, topk)
     image_urls = [match['metadata']['image_url'] for match in query_res['matches']]
     return image_urls
@@ -65,7 +70,7 @@ css = """
 #image_query .output-image, .input-image, .image-preview { height: 100px !important; }
 #gallery {
     display: grid;
-    grid-template-columns: repeat(4, minmax(300px, 1fr)); /* Display four columns */
+    grid-template-columns: repeat(4, minmax(500px, 1fr)); /* Display four columns */
     grid-gap: 20px; /* Adjust the gap between grid items */
 }
 
