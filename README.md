@@ -91,10 +91,17 @@ There are two ways to
     pip install -r requirements.txt
     python gradio_app.py -i <your-pinecone-index> -k <topk>
 
-2. **Dockerfile**
+## How to Use Dockerfile
+1. Built the Dockerimage and publish it to docker-hub
     ```
-    docker build -t multimodal-image .
+    docker build -t multimodal-image . 
+
+![Image-Built](images/multimodal-image-docker-desktop.png)
+
+2. Now After publishing to docker-hub, run the below command
+    ```
     docker run multimodal-image
+![Docker Container](images/docker-build-1.png)
 
 ## Sample Outputs with 3 modalities
 
