@@ -114,4 +114,4 @@ There are two ways to
 ![Audio-to-Image](images/audio.png)
 
 ## For more info
-Thank you for visiting the application
+Thank you for visiting the application, connect with me in [`linkedin`](), I write on ML/AI/GenAI visit [`blogs`]()
