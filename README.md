@@ -76,11 +76,9 @@ For **Image and Text Embeddding data created using ImageBind model** Visit this 
 
 Note: This code is builted and tested on python==v3.8.19.
 create a virtual env 
- 1. conda create --name multimodal python=3.8.19
- 2. conda activate multimodal
-
-Install the necessary dependencies
- pip install -r requirements.txt
+    ```
+    1. conda create --name multimodal python=3.8.19
+    2. conda activate multimodal
 
 ## How to Run the App
 
