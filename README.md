@@ -19,6 +19,11 @@ You can search a collection of images using `text`, `audio` or `images`.
     ├── images/
     │   ├── (sample images)
     │
+    ├── data/
+    |    └── fashion-cat.json
+    ├── data/
+    |    └── APP_README.md
+    |
     ├── models/
     │   ├── __init__.py
     │   ├── data.py
