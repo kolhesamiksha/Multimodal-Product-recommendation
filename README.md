@@ -96,12 +96,12 @@ There are two ways to
     ```
     docker build -t multimodal-image . 
 
-![Image-Built](images/multimodal-image-docker-desktop.png)
+![Image-Built](images/docker-build-1.png)
 
 2. Now After publishing to docker-hub, run the below command
     ```
     docker run multimodal-image
-![Docker Container](images/docker-build-1.png)
+![Docker Container](images/multimodal-image-docker-desktop.png)
 
 ## Sample Outputs with 3 modalities
 
