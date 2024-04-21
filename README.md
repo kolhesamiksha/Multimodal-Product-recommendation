@@ -86,13 +86,15 @@ Install the necessary dependencies
 
 There are two ways to 
 1. **Clone the github repository**: follow below steps
-    ```git clone https://github.com/kolhesamiksha/Multimodal-Product-recommendation.git
-       pip install -r requirements.txt
-       python gradio_app.py -i <your-pinecone-index> -k <topk>
+    ```
+    git clone https://github.com/kolhesamiksha/Multimodal-Product-recommendation.git
+    pip install -r requirements.txt
+    python gradio_app.py -i <your-pinecone-index> -k <topk>
 
 2. **Dockerfile**
-    ```docker build -t multimodal-image .
-       docker run multimodal-image
+    ```
+    docker build -t multimodal-image .
+    docker run multimodal-image
 
 ## Sample Outputs with 3 modalities
 
