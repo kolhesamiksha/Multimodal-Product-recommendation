@@ -32,14 +32,27 @@ You can search a collection of images using `text`, `audio` or `images`.
         │   ├── gemini-description-dataset.ipynb
         │   ├── imagebind-model-download.ipynb
         │   ├── model-inference.ipynb
-        │   └── pinecone-upsert-embeddings.ipynb
-        │
+        │   ├── pinecone-upsert-embeddings.ipynb
+        |   └── synthetic-fashion-dataset-creation.ipynb
+        |
+        ├──sample-workflow
+        |   └──docker-image-build.yml
+        ├── .env
+        ├── .gitignore
+        ├── Dockerfile 
         ├── gradio_app.py
-        │
+        ├── README.md
         └── requirements.txt
 ```
 
 ## TechStack
+
+1. ImageBind Model
+2. Generative AI
+3. Vector Store: Pinecone
+4. Image Embeddings
+5. Any-to-Any Image Similarity Search
+6. Vision Transformers
 
 ## Data
 
