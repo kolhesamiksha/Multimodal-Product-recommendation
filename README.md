@@ -10,6 +10,9 @@ You can search a collection of images using `text`, `audio` or `images`.
 ## Code Structure
 
 ```
+    ├── .github/workflows//
+    │   └── push_to_s3.yml
+    |
     ├── audio/
     │   ├── (audio files)
     │
@@ -21,7 +24,8 @@ You can search a collection of images using `text`, `audio` or `images`.
     │
     ├── data/
     |    └── fashion-cat.json
-    ├── data/
+    |
+    ├── doc/
     |    └── APP_README.md
     |
     ├── models/
